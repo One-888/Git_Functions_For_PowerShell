@@ -1,6 +1,7 @@
 #
-# Customer Git Functions
+# Custome Git Functions for Windows PowerShell
 # Created 6/24/2021
+#
 #
 
 function cgit-version { Write-Host "cgit version 0.05" -ForegroundColor Red;}
