@@ -29,9 +29,13 @@ function gcommitpush {
 
 function gcommit {
   param([string] $message)
-	" Git Commit------------------------------"
+	 
 	git commit -am $message 
+
+    Write-Progress -Activity Wait -PercentComplete 20
 	git log --oneline --graph -3
+
+    Write-Progress -Activity Wait -PercentComplete 80
 	gst 
 }
 
@@ -77,9 +81,11 @@ function gf-init { git flow init -d -f }
 function ct { 
 	param ([string] $command_text)
 	check-time "Processing..."
+    
 	$a = (Get-Date).ToString()
 	Invoke-Expression $command_text
 	check-time "Completed!"
+    
 	$b = (Get-Date).ToString()
 	(		(			New-TimeSpan -start $a -end $b).TotalSeconds).ToString() + " seconds"
   Write-Host "            "
