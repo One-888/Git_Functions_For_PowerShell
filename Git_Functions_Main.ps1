@@ -3,11 +3,19 @@
 # Created 6/24/2021
 #
 #
+function show-loading {param([string] $Act, [int] $pct)
+Write-Progress -Activity $Act -PercentComplete $pct
+Start-Sleep -MilliSeconds 200
+}
+
+show-loading -Act Loading -pct 20
 
 function cgit-version { Write-Host "cgit version 0.05" -ForegroundColor Red;}
 cgit-version
 
 function gst {git status -b -s}
+
+function git-log-3 {git log --oneline --graph -3}
 
 function gcforce {git gc --aggressive --force --prune=all}
 
@@ -21,21 +29,23 @@ function gcommitpush {
 	git push
         Write-Progress -Activity Wait -PercentComplete 60
 	" Git Status------------------------------"
-	git log --oneline --graph -3
+	git-log-3 
         Write-Progress -Activity Wait -PercentComplete 80
 	gst 
         Write-Progress -Activity Wait -PercentComplete 100
 }
+
+show-loading  -Act Loading -pct 40
 
 function gcommit {
   param([string] $message)
 	 
 	git commit -am $message 
 
-    Write-Progress -Activity Wait -PercentComplete 20
-	git log --oneline --graph -3
+    show-loading -Act Wait -pct 20
+	git-log-3 
 
-    Write-Progress -Activity Wait -PercentComplete 80
+    show-loading -Act Wait -pct 80
 	gst 
 }
 
@@ -43,6 +53,8 @@ function gadd {
 	git add .
 	gst 
 }
+
+show-loading  -Act Loading -pct 60
 
 function gclone {
 # Must be in the Original Folder
@@ -104,6 +116,7 @@ Get-ChildItem -Directory -Path $Include_folder_text | % { Push-Location $_.FullN
 #
 ### Alias section #####################################################################
 #
+show-loading  -Act Loading -pct 80
 
 function g1 {ct "git log --oneline --graph -10 --all"}
 set-alias cgl1 g1 
@@ -162,6 +175,6 @@ function g16 { Get-Alias -Name cg* }
 set-alias cghis g16
 
 
-
+show-loading  -Act Loading -pct 100
 # Last Line
 cghis # Show Alias
