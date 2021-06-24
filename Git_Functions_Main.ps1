@@ -13,13 +13,18 @@ function gcforce {git gc --aggressive --force --prune=all}
 
 function gcommitpush {
   param([string] $message)
+        Write-Progress -Activity Wait -PercentComplete 20
 	" Git Commit------------------------------"
 	git commit -am $message 
+        Write-Progress -Activity Wait -PercentComplete 40
 	" Git Push------------------------------"
 	git push
+        Write-Progress -Activity Wait -PercentComplete 60
 	" Git Status------------------------------"
 	git log --oneline --graph -3
+        Write-Progress -Activity Wait -PercentComplete 80
 	gst 
+        Write-Progress -Activity Wait -PercentComplete 100
 }
 
 function gcommit {
