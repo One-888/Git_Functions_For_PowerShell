@@ -10,7 +10,7 @@ Start-Sleep -MilliSeconds 200
 
 show-loading -Act Loading -pct 20
 
-function cgit-version { Write-Host "cgit version 0.05" -ForegroundColor Red;}
+function cgit-version { Write-Host "cgit version 0.05.16" -ForegroundColor Red;}
 cgit-version
 
 function gst {git status -b -s}
