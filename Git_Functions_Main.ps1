@@ -21,26 +21,37 @@ function gcforce {git gc --aggressive --force --prune=all}
 
 function gcommitpush {
   param([string] $message)
-        Write-Progress -Activity Wait -PercentComplete 20
+
+    show-loading -Act Wait -pct 20
 	" Git Commit------------------------------"
-	git commit -am $message 
-        Write-Progress -Activity Wait -PercentComplete 40
+	$date_string = (Get-Date -Format "MM/dd/yyyy HH:mm:ss").ToString() 
+    $new_message = $date_string  + ": " + $message 
+    
+	git commit -am $new_message 
+    
+    show-loading -Act Wait -pct 40
+
 	" Git Push------------------------------"
 	git push
-        Write-Progress -Activity Wait -PercentComplete 60
+    
+    show-loading -Act Wait -pct 60
 	" Git Status------------------------------"
 	git-log-3 
-        Write-Progress -Activity Wait -PercentComplete 80
+    
+    show-loading -Act Wait -pct 80
 	gst 
-        Write-Progress -Activity Wait -PercentComplete 100
+    
+    show-loading -Act Wait -pct 100
 }
 
 show-loading  -Act Loading -pct 40
 
 function gcommit {
   param([string] $message)
-	 
-	git commit -am $message 
+	$date_string = (Get-Date -Format "MM/dd/yyyy HH:mm:ss").ToString() 
+    $new_message = $date_string  + ": " + $message 
+    
+	git commit -am $new_message 
 
     show-loading -Act Wait -pct 20
 	git-log-3 
@@ -169,7 +180,7 @@ set-alias cgclone g14
 
 function g15 { 
 ct "gcforce"}
-set-alias cgcf g15
+set-alias -Name cgcf -Value g15
 
 function g16 { Get-Alias -Name cg* }
 set-alias cghis g16
