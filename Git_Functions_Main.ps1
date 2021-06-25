@@ -111,6 +111,7 @@ function ct {
     
 	$b = (Get-Date).ToString()
 	(		(			New-TimeSpan -start $a -end $b).TotalSeconds).ToString() + " seconds"
+    (		(			New-TimeSpan -start $a -end $b).TotalMinutes).ToString() + " minutes"
   Write-Host "            "
 }
 
