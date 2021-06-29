@@ -10,10 +10,8 @@ Start-Sleep -MilliSeconds 200
 
 show-loading -Act Loading -pct 20
 
-function cgit-version { Write-Host "cgit version 0.05.16" -ForegroundColor Red;}
+function cgit-version { Write-Host "cgit version 0.06" -ForegroundColor Red;}
 cgit-version
-
-function gst {git status -b -s}
 
 function git-log-3 {git log --oneline --graph -3}
 
@@ -130,63 +128,32 @@ Get-ChildItem -Directory -Path $Include_folder_text | % { Push-Location $_.FullN
 #
 show-loading  -Act Loading -pct 80
 
-function g1 {ct "git log --oneline --graph -10 --all"}
-set-alias cgl1 g1 
-
-function g2 {ct "gf-init"}
-set-alias cgfinit g2
-
-function g3 {ct "gst"}
-set-alias cgst g3 
-
-function g4 {ct "git show-branch --all --list"}
-set-alias cgsb g4 
-
-function g5 {ct "git branch --all --list"}
-set-alias cgb g5
-
-function g6 {ct "gadd"}
-set-alias cgadd g6
-
-function g7 {param ([string] $command_text)
-ct "gcommit ""$command_text"""}
-set-alias cgc g7
-
-function g8 {param ([string] $command_text)
-ct "gcommitpush ""$command_text"""}
-set-alias cgcp g8
-
-function g9 {cgit-version}
-set-alias cgv g9
-
-function g10 {param ([string] $command_text)
-ct "git flow release start ""$command_text"""}
-set-alias cgfrs g10
-
-function g11 {param ([string] $command_text)
-ct "git flow release finish ""$command_text"""}
-set-alias cgfrf g11
-
-function g12 {param ([string] $command_text)
-ct "git flow feature start ""$command_text"""}
-set-alias cgffs g12
-
-function g13 {param ([string] $command_text)
-ct "git flow feature finish ""$command_text"""}
-set-alias cgfff g13
-
-function g14 {param ([string] $command_text)
-ct "gclone ""$command_text"""}
-set-alias cgclone g14
-
-function g15 { 
-ct "gcforce"}
-set-alias -Name cgcf -Value g15
-
-function g16 { Get-Alias -Name cg* }
-set-alias cghis g16
-
+function cgadd {ct "gadd"}
+function cgal { Get-Alias -Name cg* }
+function cgbr {ct "git branch" }
+function cgbra {ct "git branch --all --list"}
+function cgc {param ([string] $command_text) ct "gcommit ""$command_text"""}
+function cgcf { ct "gcforce"}
+function cgclone {param ([string] $command_text) ct "gclone ""$command_text"""}
+function cgcp {param ([string] $command_text) ct "gcommitpush ""$command_text"""}
+function cgd {ct "git diff" }
+function cgfff {param ([string] $command_text) ct "git flow feature finish ""$command_text"""}
+function cgffs {param ([string] $command_text) ct "git flow feature start ""$command_text"""}
+function cgfinit {ct "gf-init"}
+function cgfrf {param ([string] $command_text) ct "git flow release finish ""$command_text"""}
+function cgfrs {param ([string] $command_text) ct "git flow release start ""$command_text"""}
+function cghist {ct "git log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short" }
+function cglag {ct "git log --all --decorate --oneline --graph" }
+function cglast {ct "git log -1 HEAD" }
+function cglg1 {ct "git log --oneline --graph -10 --all"}
+function cglo { ct "git log --oneline" }
+function cglo10 {ct "git log --oneline -n 10" }
+function cglop {ct "git log -10 --pretty=format:'%C(bold red)%h%Creset - %ci - %s %Cgreen(%cr)%Creset %C(bold blue)%d%Creset' --abbrev-commit" }
+function cgsb {ct "git show-branch --all --list"}
+function cgstb {ct "git status -b"}
+function cgsts {ct "git status -s"}
+function cgv {cgit-version}
 
 show-loading  -Act Loading -pct 100
 # Last Line
-cghis # Show Alias
+#cgal # Show Alias
