@@ -101,7 +101,7 @@ function gf-init { git flow init -d -f }
 
 function ct { 
 	param ([string] $command_text)
-	check-time "Processing..."
+	check-time "Processing..." + $command_text
     
 	$a = (Get-Date).ToString()
 	Invoke-Expression $command_text
