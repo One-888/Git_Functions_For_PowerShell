@@ -153,7 +153,7 @@ function cglo { ct "git log --oneline" }
 function cglo10 {ct "git log --oneline -n 10" }
 function cglop {ct "git log -10 --pretty=format:'%C(bold red)%h%Creset - %ci - %s %Cgreen(%cr)%Creset %C(bold blue)%d%Creset' --abbrev-commit" }
 function cgsb {ct "git show-branch --all --list"}
-function cgstb {ct "git status"}
+function cgst {ct "git status"}
 function cgstb {ct "git status -b"}
 function cgsts {ct "git status -s"}
 function cgv {cgit-version}
