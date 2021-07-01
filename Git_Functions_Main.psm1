@@ -146,14 +146,17 @@ function cghist {ct "git log --pretty=format:'%h %ad | %s%d [%an]' --graph --dat
 function cglag {ct "git log --all --decorate --oneline --graph" }
 function cglast {ct "git log -1 HEAD" }
 function cglg1 {ct "git log --oneline --graph -10 --all"}
+function cghelp {Get-Command -Module Git_Functions_Main cg* | Select-Object Name | format-wide -column 3}
+function cghelpa {Get-Command -Module Git_Functions_Main | Select-Object Name | format-wide -column 3}
 function cglo { ct "git log --oneline" }
 function cglo10 {ct "git log --oneline -n 10" }
 function cglop {ct "git log -10 --pretty=format:'%C(bold red)%h%Creset - %ci - %s %Cgreen(%cr)%Creset %C(bold blue)%d%Creset' --abbrev-commit" }
 function cgsb {ct "git show-branch --all --list"}
+function cgstb {ct "git status"}
 function cgstb {ct "git status -b"}
 function cgsts {ct "git status -s"}
 function cgv {cgit-version}
 
 show-loading  -Act Loading -pct 100
 # Last Line
-#cgal # Show Alias
+cghelp
