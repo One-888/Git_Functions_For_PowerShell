@@ -11,3 +11,17 @@ cgit also adds some utility functions such as timing your git commands. cgit can
   "Help: cghelp"
 }
 </code></pre>
+
+# Sample Commands
+<pre><code> 
+C:\Users\vsayakanit\OneDrive - Pittsburgh Water and Sewer\Git\__Update Git\Git_Functions_For_PowerShell [develop ≡]> cgsb
+cgit: git show-branch --all --list
+7/2/2021 9:03:15 AM - Processing...
+* [develop] Update README.md
+  [master] Merge branch 'release/0.05.16'
+  [origin/develop] Update README.md
+  [origin/master] Merge branch 'release/0.05.16'
+7/2/2021 9:03:16 AM - Completed!
+1 seconds or 0.0166666666666667 minutes
+Help: cphelp or cphelpa
+</code></pre>
