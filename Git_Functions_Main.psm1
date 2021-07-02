@@ -37,7 +37,7 @@ function gcommitpush {
 	git-log-3 
     
     show-loading -Act Wait -pct 80
-	gst 
+	cgst 
     
     show-loading -Act Wait -pct 100
 }
@@ -55,12 +55,12 @@ function gcommit {
 	git-log-3 
 
     show-loading -Act Wait -pct 80
-	gst 
+	cgst 
 }
 
 function gadd {
 	git add .
-	gst 
+	cgst 
 }
 
 show-loading  -Act Loading -pct 60
@@ -102,7 +102,7 @@ function gf-init { git flow init -d -f }
 function ct { 
 	param ([string] $command_text)
 
-    Write-Host ("$command_text") -ForegroundColor Blue 
+    Write-Host ("cgit: " + "$command_text") -ForegroundColor Green 
 	check-time "Processing..."  
     
 	$a = (Get-Date).ToString()
@@ -110,10 +110,9 @@ function ct {
 	check-time "Completed!"
     
 	$b = (Get-Date).ToString()
-	(		(			New-TimeSpan -start $a -end $b).TotalSeconds).ToString() + " seconds"
-    (		(			New-TimeSpan -start $a -end $b).TotalMinutes).ToString() + " minutes"
-    Write-Host "            "
-    Write-Host ("Help: cphelp or cphelpa") -ForegroundColor Blue 
+	(		(			New-TimeSpan -start $a -end $b).TotalSeconds).ToString() + " seconds" + " or " +     (		(			New-TimeSpan -start $a -end $b).TotalMinutes).ToString() + " minutes"
+
+    Write-Host ("Help: cphelp or cphelpa") 
 }
 
 function check-time { 
