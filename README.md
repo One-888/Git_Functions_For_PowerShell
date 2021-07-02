@@ -11,10 +11,8 @@ cgit also adds some utility functions such as timing your git commands. cgit can
   "Help: cghelp"
 }
 </code></pre>
-
 # Sample Commands
-<pre><code> 
-C:\Users\vsayakanit\OneDrive - Pittsburgh Water and Sewer\Git\__Update Git\Git_Functions_For_PowerShell [develop ≡]> cgsb
+<pre><code> C:\Users\vsayakanit\OneDrive - Pittsburgh Water and Sewer\Git\__Update Git\Git_Functions_For_PowerShell [develop ≡]> cgsb
 cgit: git show-branch --all --list
 7/2/2021 9:03:15 AM - Processing...
 * [develop] Update README.md
