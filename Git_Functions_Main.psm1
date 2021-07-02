@@ -92,9 +92,6 @@ git gc --aggressive --prune=all # remove the old files
 	gcforce 
 }
 
-# Default Git Flow
-function gf-init { git flow init -d -f }
-
 #
 ### System section #####################################################################
 #
@@ -142,7 +139,8 @@ function cgcp {param ([string] $command_text) ct "gcommitpush ""$command_text"""
 function cgd {ct "git diff" }
 function cgfff {param ([string] $command_text) ct "git flow feature finish ""$command_text"""}
 function cgffs {param ([string] $command_text) ct "git flow feature start ""$command_text"""}
-function cgfinit {ct "gf-init"}
+function cgfinit {ct "git flow init -d -f"} # Default Git Flow
+function cginit {ct "git init -d -f"} # Default Git Init
 function cgfrf {param ([string] $command_text) ct "git flow release finish ""$command_text"""}
 function cgfrs {param ([string] $command_text) ct "git flow release start ""$command_text"""}
 function cghist {ct "git log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short" }
