@@ -149,6 +149,8 @@ function cglast {ct "git log -1 HEAD" }
 function cglg1 {ct "git log --oneline --graph -10 --all"}
 function cghelp {Get-Command -Module Git_Functions_Main cg* | Select-Object Name | format-wide -column 3}
 function cghelpa {Get-Command -Module Git_Functions_Main | Select-Object Name | format-wide -column 3}
+function cgp {ct "git push" }
+function cgpa {ct "git push --all" }
 function cglo { ct "git log --oneline" }
 function cglo10 {ct "git log --oneline -n 10" }
 function cglop {ct "git log -10 --pretty=format:'%C(bold red)%h%Creset - %ci - %s %Cgreen(%cr)%Creset %C(bold blue)%d%Creset' --abbrev-commit" }
