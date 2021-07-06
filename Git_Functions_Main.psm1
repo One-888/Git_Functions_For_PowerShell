@@ -14,7 +14,7 @@ function Display-Message {param ([string] $command_text)
 
 show-loading -Act Loading -pct 20
 
-function cgit-version { Write-Host "cgit version 0.06" -ForegroundColor Red;}
+function cgit-version { Write-Host "cgit version 0.07" -ForegroundColor Red;}
 cgit-version
 
 function gcforce {git gc --aggressive --force --prune=all}
