@@ -157,8 +157,8 @@ function cghist {ct "git log --pretty=format:'%h %ad | %s%d [%an]' --graph --dat
 function cglag {ct "git log --all --decorate --oneline --graph" }
 function cglast {ct "git log -1 HEAD" }
 function cglg1 {ct "git log --oneline --graph -10 --all"}
-function cghelp {Get-Command -Module Git_Functions_Main cg* | Select-Object Name | format-wide -column 3}
-function cghelpa {Get-Command -Module Git_Functions_Main | Select-Object Name | format-wide -column 3}
+function cghelp {ct "Get-Command -Module Git_Functions_Main cg* | Select-Object Name | format-wide -column 5"}
+function cghelpa {ct "Get-Command -Module Git_Functions_Main | Select-Object Name | format-wide -column 5"}
 function cgp {ct "git push" }
 function cgpa {ct "git push --all" }
 function cglo { ct "git log --oneline" }
