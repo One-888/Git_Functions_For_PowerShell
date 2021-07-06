@@ -4,8 +4,8 @@
 #
 #
 function show-loading {param([string] $Act, [int] $pct)
-Write-Progress -Activity $Act -PercentComplete $pct
-Start-Sleep -MilliSeconds 200
+    Write-Progress -Activity $Act -PercentComplete $pct
+    Start-Sleep -MilliSeconds 200
 }
 
 function Display-Message {param ([string] $command_text)
@@ -24,25 +24,25 @@ function gcforce {git gc --aggressive --force --prune=all}
 function gcommitpush {
   param([string] $message)
     Display-Message "git commit and push"
-    show-loading -Act Wait -pct 20
+    show-loading -Act "git commit and push" -pct 20
 	
 	$date_string = (Get-Date -Format "MM/dd/yyyy HH:mm:ss").ToString() 
     $new_message = $date_string  + ": " + $message 
     
 	git commit -am $new_message 
     
-    show-loading -Act Wait -pct 40
+    show-loading -Act "git commit" -pct 40
 
 	git push
     
-    show-loading -Act Wait -pct 60
+    show-loading -Act "git push" -pct 60
 	
 	git-log-3 
     
-    show-loading -Act Wait -pct 80
+    show-loading -Act "git log" -pct 80
 	git status -s 
     
-    show-loading -Act Wait -pct 100
+    show-loading -Act "git status" -pct 100
 }
 
 show-loading  -Act Loading -pct 40
@@ -55,17 +55,21 @@ function gcommit {
     
 	git commit -am $new_message 
 
-    show-loading -Act Wait -pct 20
+    show-loading -Act "git commit" -pct 20
 	git-log-3 
 
-    show-loading -Act Wait -pct 80
+    show-loading -Act "git log" -pct 80
 	git status -s
+
+    show-loading -Act "git status" -pct 100
 }
 
 function gadd {
     Display-Message "git add"
 	git add .
+    show-loading -Act "git add" -pct 50
 	git status -s
+    show-loading -Act "git status" -pct 100
 }
 
 show-loading  -Act Loading -pct 60
@@ -113,9 +117,9 @@ function ct {
 	check-time "Completed!"
     
 	$b = (Get-Date).ToString()
-	((New-TimeSpan -start $a -end $b).TotalSeconds).ToString() + " seconds" + " or " + “{0:N2}” -f ((New-TimeSpan -start $a -end $b).TotalMinutes).ToString() + " minutes"
+	((New-TimeSpan -start $a -end $b).TotalSeconds).ToString() + " seconds" + " or " + (“{0:N2}” -f ((New-TimeSpan -start $a -end $b)).TotalMinutes).ToString() + " minutes"
 
-    Write-Host ("Help: cphelp or cphelpa") 
+    Write-Host ("Help: cghelp or cghelpa") 
 }
 
 function check-time { 
