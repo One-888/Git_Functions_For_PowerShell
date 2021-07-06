@@ -17,8 +17,6 @@ show-loading -Act Loading -pct 20
 function cgit-version { Write-Host "cgit version 0.06" -ForegroundColor Red;}
 cgit-version
 
-function git-log-3 {git log --oneline --graph -3}
-
 function gcforce {git gc --aggressive --force --prune=all}
 
 function gcommitpush {
@@ -37,7 +35,7 @@ function gcommitpush {
     
     show-loading -Act "git push" -pct 60
 	
-	git-log-3 
+	git log --oneline --graph -3
     
     show-loading -Act "git log" -pct 80
 	git status -s 
@@ -56,7 +54,7 @@ function gcommit {
 	git commit -am $new_message 
 
     show-loading -Act "git commit" -pct 20
-	git-log-3 
+	git log --oneline --graph -3
 
     show-loading -Act "git log" -pct 80
 	git status -s
@@ -153,21 +151,23 @@ function cginit {ct "git init -d -f"} # Default Git Init
 function cgfrf {param ([string] $command_text) ct "git flow release finish ""$command_text"""}
 function cgfrs {param ([string] $command_text) ct "git flow release start ""$command_text"""}
 function cghist {ct "git log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short" }
-function cglag {ct "git log --all --decorate --oneline --graph" }
-function cglast {ct "git log -1 HEAD" }
 function cglg1 {ct "git log --oneline --graph -10 --all"}
 function cghelp {ct "Get-Command -Module Git_Functions_Main cg* | Select-Object Name | format-wide -column 5"}
 function cghelpa {ct "Get-Command -Module Git_Functions_Main | Select-Object Name | format-wide -column 5"}
 function cgp {ct "git push" }
 function cgpa {ct "git push --all" }
-function cglo { ct "git log --oneline" }
-function cglo10 {ct "git log --oneline -n 10" }
-function cglop {ct "git log -10 --pretty=format:'%C(bold red)%h%Creset - %ci - %s %Cgreen(%cr)%Creset %C(bold blue)%d%Creset' --abbrev-commit" }
+function cgl { ct "git log --oneline" }
+function cglg3 { ct "git log --oneline --graph -3" }
+function cgl10 {ct "git log --oneline -n 10" }
+function cglga {ct "git log --all --decorate --oneline --graph" }
+function cglast {ct "git log -1 HEAD" }
+function cglp {ct "git log -10 --pretty=format:'%C(bold red)%h%Creset - %ci - %s %Cgreen(%cr)%Creset %C(bold blue)%d%Creset' --abbrev-commit" }
 function cgsb {ct "git show-branch --all --list"}
 function cgst {ct "git status"}
 function cgstb {ct "git status -b"}
 function cgsts {ct "git status -s"}
 function cgv {cgit-version}
+
 
 show-loading  -Act Loading -pct 100
 # Last Line
