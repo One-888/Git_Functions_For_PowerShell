@@ -23,7 +23,7 @@ function gcforce {git gc --aggressive --force --prune=all}
 
 function gcommitpush {
   param([string] $message)
-    
+    Display-Message "git commit and push"
     show-loading -Act Wait -pct 20
 	
 	$date_string = (Get-Date -Format "MM/dd/yyyy HH:mm:ss").ToString() 
@@ -49,6 +49,7 @@ show-loading  -Act Loading -pct 40
 
 function gcommit {
   param([string] $message)
+    Display-Message "git commit"
 	$date_string = (Get-Date -Format "MM/dd/yyyy HH:mm:ss").ToString() 
     $new_message = $date_string  + ": " + $message 
     
@@ -62,6 +63,7 @@ function gcommit {
 }
 
 function gadd {
+    Display-Message "git add"
 	git add .
 	git status -s
 }
@@ -71,6 +73,7 @@ show-loading  -Act Loading -pct 60
 function gclone {
 # Must be in the Original Folder
 	param([string] $new_folder)
+    Display-Message "git clone"
 	git clone --local --progress --no-single-branch . ../$($new_folder)
 	cd ../$($new_folder)
 	git show-branch
