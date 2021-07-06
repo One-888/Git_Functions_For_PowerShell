@@ -8,6 +8,10 @@ Write-Progress -Activity $Act -PercentComplete $pct
 Start-Sleep -MilliSeconds 200
 }
 
+function Display-Message {param ([string] $command_text)
+    Write-Host ("cgit: " + "$command_text") -ForegroundColor Green 
+}
+
 show-loading -Act Loading -pct 20
 
 function cgit-version { Write-Host "cgit version 0.06" -ForegroundColor Red;}
@@ -19,9 +23,9 @@ function gcforce {git gc --aggressive --force --prune=all}
 
 function gcommitpush {
   param([string] $message)
-
+    
     show-loading -Act Wait -pct 20
-	" Git Commit------------------------------"
+	
 	$date_string = (Get-Date -Format "MM/dd/yyyy HH:mm:ss").ToString() 
     $new_message = $date_string  + ": " + $message 
     
@@ -29,15 +33,14 @@ function gcommitpush {
     
     show-loading -Act Wait -pct 40
 
-	" Git Push------------------------------"
 	git push
     
     show-loading -Act Wait -pct 60
-	" Git Status------------------------------"
+	
 	git-log-3 
     
     show-loading -Act Wait -pct 80
-	cgst 
+	git status -s 
     
     show-loading -Act Wait -pct 100
 }
@@ -55,12 +58,12 @@ function gcommit {
 	git-log-3 
 
     show-loading -Act Wait -pct 80
-	cgst 
+	git status -s
 }
 
 function gadd {
 	git add .
-	cgst 
+	git status -s
 }
 
 show-loading  -Act Loading -pct 60
