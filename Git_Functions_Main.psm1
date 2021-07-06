@@ -139,7 +139,7 @@ show-loading  -Act Loading -pct 80
 
 function cgadd {ct "gadd"}
 function cgal { Get-Alias -Name cg* }
-function cgamend { ct "git commit --amend --no-edit"}
+function cgamend { ct "git commit --amend --no-edit -a"}
 function cgbr {ct "git branch" }
 function cgbra {ct "git branch --all --list"}
 function cgc {param ([string] $command_text) ct "gcommit ""$command_text"""}
