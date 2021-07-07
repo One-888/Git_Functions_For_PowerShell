@@ -144,15 +144,14 @@ function cgcf { ct "gcforce"}
 function cgclone {param ([string] $command_text) ct "gclone ""$command_text"""}
 function cgcp {param ([string] $command_text) ct "gcommitpush ""$command_text"""}
 function cgd {ct "git diff" }
-function cgdcs {ct "git diff --compact-summary" }
-function cgdn {ct "git diff --name-only" }
+function cgds {ct "git diff --stat" }
 function cgdns {ct "git diff --name-status" }
 function cgdd {ct "git diff develop" }
-function cgddn {ct "git diff develop --name-only" }
 function cgddns {ct "git diff develop --name-status" }
+function cgdds {ct "git diff develop --stat" }
 function cgdm {ct "git diff master" }
-function cgdmn {ct "git diff master --name-only" }
 function cgdmns {ct "git diff master --name-status" }
+function cgdms {ct "git diff master --stat" }
 function cgfff {param ([string] $command_text) ct "git flow feature finish ""$command_text"""}
 function cgffs {param ([string] $command_text) ct "git flow feature start ""$command_text"""}
 function cgfinit {ct "git flow init -d -f"} # Default Git Flow
