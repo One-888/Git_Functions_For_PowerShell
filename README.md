@@ -1,8 +1,8 @@
 # Git Functions for PowerShell (cgit)
 
-cgit helps you to reduce number of keystrokes by combinding multiple git commands into a shorthen PowerShell function.
+cgit is a time-saving tool that helps you to reduce the number of keystrokes by combining one or more commonly used git commands into a shorten PowerShell function.
 
-cgit also adds some utility functions such as timing your git commands. cgit can work with git-flow.
+cgit also adds a utility functions such as measuring the time on your git commands. cgit can work with git-flow.
 
 # How to load cgit
 <pre><code> function cgit {
