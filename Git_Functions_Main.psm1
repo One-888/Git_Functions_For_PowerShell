@@ -117,7 +117,7 @@ function ct {
 	$b = (Get-Date).ToString()
 	((New-TimeSpan -start $a -end $b).TotalSeconds).ToString() + " seconds" + " or " + (“{0:N2}” -f ((New-TimeSpan -start $a -end $b)).TotalMinutes).ToString() + " minutes"
 
-    Write-Host ("Help: cghelp or cghelpa") 
+    Write-Host ("Help: cghelp or cghelpa; Time git: ct ""any git command here""") 
 }
 
 function check-time { 
@@ -144,6 +144,15 @@ function cgcf { ct "gcforce"}
 function cgclone {param ([string] $command_text) ct "gclone ""$command_text"""}
 function cgcp {param ([string] $command_text) ct "gcommitpush ""$command_text"""}
 function cgd {ct "git diff" }
+function cgdcs {ct "git diff --compact-summary" }
+function cgdn {ct "git diff --name-only" }
+function cgdns {ct "git diff --name-status" }
+function cgdd {ct "git diff develop" }
+function cgddn {ct "git diff develop --name-only" }
+function cgddns {ct "git diff develop --name-status" }
+function cgdm {ct "git diff master" }
+function cgdmn {ct "git diff master --name-only" }
+function cgdmns {ct "git diff master --name-status" }
 function cgfff {param ([string] $command_text) ct "git flow feature finish ""$command_text"""}
 function cgffs {param ([string] $command_text) ct "git flow feature start ""$command_text"""}
 function cgfinit {ct "git flow init -d -f"} # Default Git Flow
