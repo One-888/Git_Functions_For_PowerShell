@@ -160,8 +160,8 @@ function cgfrf {param ([string] $command_text) ct "git flow release finish ""$co
 function cgfrs {param ([string] $command_text) ct "git flow release start ""$command_text"""}
 function cghist {ct "git log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short" }
 function cglg1 {ct "git log --oneline --graph -10 --all"}
-function cghelp {ct "Get-Command -Module Git_Functions_Main cg* | Select-Object Name | format-wide -column 5"}
-function cghelpa {ct "Get-Command -Module Git_Functions_Main | Select-Object Name | format-wide -column 5"}
+function cghelp {ct "Get-Command -Module Git_Functions_Main cg* | Select-Object Name | format-wide -column 4"}
+function cghelpa {ct "Get-Command -Module Git_Functions_Main | Select-Object Name | format-wide -column 4"}
 function cgp {ct "git push" }
 function cgpa {ct "git push --all" }
 function cgl { ct "git log --oneline" }
@@ -176,7 +176,7 @@ function cgstb {ct "git status -b"}
 function cgsts {ct "git status -s"}
 function cgv {cgit-version}
 
-function cgmon {Get-Counter "\Process(p*ell*)\% Processor Time" -SampleInterval 1 -MaxSamples 10000 | Select-Object -ExpandProperty  countersamples | Select-Object InstanceName,CookedValue | Format-Table }
+function cgmon {Get-Counter "\Process(powershell*)\% Processor Time" -SampleInterval 1 -MaxSamples 10000 | Select-Object -ExpandProperty  countersamples | Select-Object CookedValue,InstanceName | Format-Table }
 
 show-loading  -Act Loading -pct 100
 # Last Line
