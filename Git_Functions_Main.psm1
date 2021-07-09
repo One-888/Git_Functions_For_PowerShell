@@ -14,10 +14,10 @@ function Display-Message {param ([string] $command_text)
 
 show-loading -Act Loading -pct 20
 
-function cgit-version { Write-Host "cgit version 0.07" -ForegroundColor Red;}
+function cgit-version { Write-Host "cgit version 0.08" -ForegroundColor Red;}
 cgit-version
 
-function gcforce {git gc --aggressive --force --prune=all}
+#function gcforce {git gc --aggressive --force --prune=all}
 
 function gcommitpush {
   param([string] $message)
@@ -97,7 +97,7 @@ git gc --aggressive --prune=all # remove the old files
 	git branch -D $branch_to_cutover 
 	git branch -m $branch_to_cutover 
 	git branch --set-upstream-to=origin/$branch_to_cutover $branch_to_cutover 
-	gcforce 
+	git gc --aggressive --force --prune=all 
 }
 
 #
@@ -117,7 +117,7 @@ function ct {
 	$b = (Get-Date).ToString()
 	((New-TimeSpan -start $a -end $b).TotalSeconds).ToString() + " seconds" + " or " + (“{0:N2}” -f ((New-TimeSpan -start $a -end $b)).TotalMinutes).ToString() + " minutes"
 
-    Write-Host ("Help: cghelp or cghelpa") 
+    Write-Host ("Help: cghelp or cghelpa; Time git: ct ""any git command here""") 
 }
 
 function check-time { 
@@ -140,10 +140,18 @@ function cgamend { ct "git commit --amend --no-edit -a"}
 function cgb {ct "git branch" }
 function cgba {ct "git branch --all --list"}
 function cgc {param ([string] $command_text) ct "gcommit ""$command_text"""}
-function cgcf { ct "gcforce"}
+function cggcf { ct "git gc --aggressive --force --prune=all"}
 function cgclone {param ([string] $command_text) ct "gclone ""$command_text"""}
 function cgcp {param ([string] $command_text) ct "gcommitpush ""$command_text"""}
 function cgd {ct "git diff" }
+function cgds {ct "git diff --stat" }
+function cgdns {ct "git diff --name-status" }
+function cgdd {ct "git diff develop" }
+function cgddns {ct "git diff develop --name-status" }
+function cgdds {ct "git diff develop --stat" }
+function cgdm {ct "git diff master" }
+function cgdmns {ct "git diff master --name-status" }
+function cgdms {ct "git diff master --stat" }
 function cgfff {param ([string] $command_text) ct "git flow feature finish ""$command_text"""}
 function cgffs {param ([string] $command_text) ct "git flow feature start ""$command_text"""}
 function cgfinit {ct "git flow init -d -f"} # Default Git Flow
@@ -168,6 +176,7 @@ function cgstb {ct "git status -b"}
 function cgsts {ct "git status -s"}
 function cgv {cgit-version}
 
+function cgmon {Get-Counter "\Process(p*ell*)\% Processor Time" -SampleInterval 1 -MaxSamples 10000 | Select-Object -ExpandProperty  countersamples | Select-Object InstanceName,CookedValue | Format-Table }
 
 show-loading  -Act Loading -pct 100
 # Last Line
