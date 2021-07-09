@@ -179,7 +179,7 @@ function cgv {cgit-version}
 function cgmon {
     $cmd_text = "Get-Counter ""\Process(powershell*)\% processor time"""
  
-    while (1) {invoke-expression $cmd_text;Start-Sleep -Milliseconds 1000; cls;}
+    while (1) {invoke-expression $cmd_text; Start-Sleep -Milliseconds 1000;}
 }
 
 show-loading  -Act Loading -pct 100
