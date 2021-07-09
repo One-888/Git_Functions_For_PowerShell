@@ -17,7 +17,7 @@ show-loading -Act Loading -pct 20
 function cgit-version { Write-Host "cgit version 0.07" -ForegroundColor Red;}
 cgit-version
 
-function gcforce {git gc --aggressive --force --prune=all}
+#function gcforce {git gc --aggressive --force --prune=all}
 
 function gcommitpush {
   param([string] $message)
@@ -97,7 +97,7 @@ git gc --aggressive --prune=all # remove the old files
 	git branch -D $branch_to_cutover 
 	git branch -m $branch_to_cutover 
 	git branch --set-upstream-to=origin/$branch_to_cutover $branch_to_cutover 
-	gcforce 
+	git gc --aggressive --force --prune=all 
 }
 
 #
@@ -140,7 +140,7 @@ function cgamend { ct "git commit --amend --no-edit -a"}
 function cgb {ct "git branch" }
 function cgba {ct "git branch --all --list"}
 function cgc {param ([string] $command_text) ct "gcommit ""$command_text"""}
-function cgcf { ct "gcforce"}
+function cggcf { ct "git gc --aggressive --force --prune=all"}
 function cgclone {param ([string] $command_text) ct "gclone ""$command_text"""}
 function cgcp {param ([string] $command_text) ct "gcommitpush ""$command_text"""}
 function cgd {ct "git diff" }
