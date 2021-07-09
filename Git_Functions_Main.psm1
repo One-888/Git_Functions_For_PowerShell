@@ -177,7 +177,7 @@ function cgsts {ct "git status -s"}
 function cgv {cgit-version}
 
 function cgmon {
-    $cmd_text = "Get-Process -Name powershell -ErrorAction SilentlyContinue |  Select-Object -Property Name,CPU"
+    $cmd_text = "Get-Process -Name powershell -ErrorAction SilentlyContinue |  Select-Object -Property Name,CPU  | format-table -Autosize"
  
     while (1) {invoke-expression $cmd_text;Start-Sleep -Milliseconds 2000; cls;}
 }
