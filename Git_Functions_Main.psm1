@@ -176,7 +176,7 @@ function cgstb {ct "git status -b"}
 function cgsts {ct "git status -s"}
 function cgv {cgit-version}
 
-function cgmon {Get-Counter "\Process(powershell*)\% Processor Time" -SampleInterval 1 -MaxSamples 10000 | Select-Object -ExpandProperty  countersamples | Select-Object CookedValue,InstanceName | Format-Table }
+function cgmon {Get-Counter "\Process(powershell*)\% Processor Time" -SampleInterval 1 -MaxSamples 9999}
 
 show-loading  -Act Loading -pct 100
 # Last Line
