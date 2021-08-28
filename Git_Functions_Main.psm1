@@ -131,13 +131,13 @@ Get-ChildItem -Directory -Path $Include_folder_text | % { Push-Location $_.FullN
 }
 
 function cgh {
-"cgb = git branch"
-"cgc = git commit"
-"cgd = git diff"
-"cgf = git flow"
-"cgi = git init"
-"cgl = git log"
-"cgs = git status"
+Display-Message "cgb = git branch"
+Display-Message "cgc = git commit"
+Display-Message "cgd = git diff"
+Display-Message "cgf = git flow"
+Display-Message "cgi = git init"
+Display-Message "cgl = git log"
+Display-Message "cgs = git status"
 }
 
 #
