@@ -130,6 +130,16 @@ param ([string] $command_text, [string] $Include_folder_text)
 Get-ChildItem -Directory -Path $Include_folder_text | % { Push-Location $_.FullName; $_.FullName; Invoke-Expression $command_text; Pop-Location; }
 }
 
+function cgh {
+"cgb = git branch"
+"cgc = git commit"
+"cgd = git diff"
+"cgf = git flow"
+"cgi = git init"
+"cgl = git log"
+"cgs = git status"
+}
+
 #
 ### Alias section #####################################################################
 #
