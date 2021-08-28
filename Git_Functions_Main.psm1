@@ -117,7 +117,7 @@ function ct {
 	$b = (Get-Date).ToString()
 	((New-TimeSpan -start $a -end $b).TotalSeconds).ToString() + " seconds" + " or " + (“{0:N2}” -f ((New-TimeSpan -start $a -end $b)).TotalMinutes).ToString() + " minutes"
 
-    Write-Host ("Help: cghelp or cghelpa; Time git: ct ""any git command here""") 
+    Write-Host ("Help: cgh or cghelp or cghelpa; Time git: ct ""any git command here""") 
 }
 
 function check-time { 
