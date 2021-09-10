@@ -1,5 +1,5 @@
 #
-# Custome Git Functions for Windows PowerShell
+# Customized Git Functions for Windows PowerShell
 # Created 6/24/2021
 #
 #
@@ -14,7 +14,7 @@ function Display-Message {param ([string] $command_text)
 
 show-loading -Act Loading -pct 20
 
-function cgit-version { Write-Host "cgit version 0.08" -ForegroundColor Red;}
+function cgit-version { Write-Host "cgit version 0.09" -ForegroundColor Red;}
 cgit-version
 
 #function gcforce {git gc --aggressive --force --prune=all}
