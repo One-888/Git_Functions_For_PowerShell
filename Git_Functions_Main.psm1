@@ -130,7 +130,7 @@ param ([string] $command_text, [string] $Include_folder_text)
 Get-ChildItem -Directory -Path $Include_folder_text | % { Push-Location $_.FullName; $_.FullName; Invoke-Expression $command_text; Pop-Location; }
 }
 
-function cgh {
+function cg-h {
 Display-Message "cgb = git branch"
 Display-Message "cgc = git commit"
 Display-Message "cgd = git diff"
@@ -164,8 +164,9 @@ function cgdmns {ct "git diff master --name-status" }
 function cgdms {ct "git diff master --stat" }
 function cgfff {param ([string] $command_text) ct "git flow feature finish ""$command_text"""}
 function cgffs {param ([string] $command_text) ct "git flow feature start ""$command_text"""}
+function cgh {ct "cg-h"}
 function cgfinit {ct "git flow init -d -f"} # Default Git Flow
-function cginit {ct "git init -d -f"} # Default Git Init
+function cginit {ct "git init -q"} # Git Init
 function cgfrf {param ([string] $command_text) ct "git flow release finish ""$command_text"""}
 function cgfrs {param ([string] $command_text) ct "git flow release start ""$command_text"""}
 function cghist {ct "git log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short" }
